@@ -4,12 +4,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn -Denforcer.skip=true clean install'
+                sh 'mvn -Denforcer.skip=true clean package'
             }
         }
         stage('Test') {
             steps {
-                sh 'mvn -Denforcer.skip=true clean'
+                sh 'mvn -Denforcer.skip=true clean test'
             }
             post {
                 always {
